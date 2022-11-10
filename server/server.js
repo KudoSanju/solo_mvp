@@ -1,6 +1,5 @@
 const express = require("express");
-const knex = require("../db/knex");
-// const db =require('../db/knex');
+const db =require('../db/knex');
  
 function setupServer() {
   const app = express(); //initializing server
@@ -11,22 +10,22 @@ function setupServer() {
     res.status(200).send("Hello");
   });
 
-  
-
-  app.get("/api/outfits", (req,res) => {
-    const outfits = knex.select('*').from(outfits) 
-    res.status(200).send(outfits);
-    // try{
-    //   const outfits = await knex ('outfits')
-    //   .select('*')
-    //   .timeout(1500);
-    //   outfits.length > 0
-   
-    //   :res.status(404).send('no outfits found');
+  app.get("/api/outfits", async (req,res) => {
+    //db = pickmyfit
+    //table= outfits
+    try{
+      const outfits = await db('outfits')
+      .select('*')
+      .from('outfits')
+      //.timeout(1500);
+      //outfits.length > 0
+      //?
+      res.status(200).send(outfits)
+      //:res.status(404).send('no outfits found');
       
-    // }catch(err) {
-    //   res.status(500).send(err)
-    // }
+    }catch(err) {
+      res.status(500).send(err)
+    }
     
   })
   return app;
