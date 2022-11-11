@@ -1,9 +1,8 @@
 const setupServer = require("./server");
 
-
 const PORT = process.env.PORT || 4000;
 const server = setupServer();
 
-server.listen(PORT,() => {
-  console.log(`app is listening on localhost ${PORT}`)
-})
+server.listen(PORT, () => {
+  console.log(`app is listening on localhost ${PORT}`);
+});
