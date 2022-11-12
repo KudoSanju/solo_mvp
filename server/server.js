@@ -1,6 +1,5 @@
 const express = require("express");
 const db = require("../db/knex");
-const _ = require("lodash");
 const knex = require("../db/knex");
 
 function setupServer() {
