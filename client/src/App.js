@@ -24,7 +24,7 @@ setCurrentView('SingleOutfit');
     return <p onClick={(e) => {
       e.preventDefault();
       hanldeSingleOutfit(outfit.outfit_name);
-      
+
       setCurrentView('SingleOutfit')
       }}> {outfit.outfit_name} {outfit.image_ref}</p>
   });
@@ -40,9 +40,7 @@ setCurrentView('SingleOutfit');
   async function getOutfits() {
     const fetchedOutfits = await axios.get('/api/outfits');
     setOutfits(fetchedOutfits.data);
-    
   }
-
   return (
   <div className="App">
     <Navbar/>
