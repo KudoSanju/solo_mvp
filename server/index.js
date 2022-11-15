@@ -5,9 +5,9 @@ const db = require("../db/knex");
 
 const server = setupServer();
 
-(async () => {
+( () => {
   try {
-    await db.migrate.latest();
+   
     server.listen(PORT, () => {
       console.log(`app is listening on localhost ${PORT}`);
     });

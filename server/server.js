@@ -1,10 +1,14 @@
 const express = require("express");
 const db = require("../db/knex");
 const knex = require("../db/knex");
+const fileUpload = require('express-fileupload');
+const path = require("path");
+
 
 function setupServer() {
   const app = express();
   app.use(express.json());
+  app.use(express.static(path.resolve(__dirname,'../client/build')));
 
   app.get("/api/test", (req, res) => {
     res.status(200).send("Hello");
@@ -44,6 +48,14 @@ function setupServer() {
     } catch (err) {
       res.status(500).send(err);
     }
+  });
+  app.post('/upload', async (req, res) => {
+    try {
+      await db("outfits").insert(req.body);
+    } catch (error) {
+      console.log(error)
+    }
+    
   });
   app.delete("/api/outfits/:id", async (req, res) => {
     try {
