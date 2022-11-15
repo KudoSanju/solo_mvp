@@ -1,10 +1,12 @@
 import React from "react";
 
-export default function AllOuftits({selectedOutfit}) {
-  return (
+
+export default function SingleOutfit(outfit) {
+  console.log(outfit);
+return (
     <div className="allOutfits-Grid" >
-    
-    {selectedOutfit}
+  termi
+    <img  alt = 'outfit_image' src = {outfit.selectedOutfit} ></img>
     
     </div>
   );
