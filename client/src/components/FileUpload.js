@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import Message from './Message';
 
+
 import axios from 'axios';
 
 const FileUpload = () => {
@@ -10,34 +11,14 @@ const FileUpload = () => {
   const [message, setMessage] = useState('');
   const [uploadPercentage, setUploadPercentage] = useState(0);
 
+  const URL = 'https://server-solomvp.onrender.com/';
+
   const onSubmit = async e => {
   
     e.preventDefault();
-    await axios.post('/upload', {image_ref:filename})
+    await axios.post(`${URL}/upload`, {image_ref:filename})
     
-    const encodedParams = new URLSearchParams();
-    encodedParams.append("url", "https://storage.googleapis.com/api4ai-static/samples/fashion-1.jpg");
-    
-    const options = {
-      method: 'POST',
-      url: 'https://fashion4.p.rapidapi.com/v1/results',
-      headers: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'X-RapidAPI-Key': '3f91e0c171msh17a15dd5db2be1ap1eaa82jsn54acce34b22e',
-        'X-RapidAPI-Host': 'fashion4.p.rapidapi.com'
-      },
-      data: encodedParams
-    };
-    
-    console.log(encodedParams);
-    
-    const response = await axios.request(options).then(function (response) {
-      console.log(response.data);
-    }).catch(function (error) {
-      console.error(error);
-    });
 
-    console.log(response);
     // const formData = new FormData();
     // formData.append('file', file);
 
@@ -75,8 +56,7 @@ const FileUpload = () => {
 
   //implementation for getting tags:
  
-//Use async/await for axios
-//It should be inside onSubmit
+
 
   return (
     <Fragment>
@@ -89,10 +69,12 @@ const FileUpload = () => {
             id='customFile'
             onChange={(e) => {
               setFilename(e.target.files[0].name);
+              setFile(e.target.files[0])
             }}
           />
           <label className='custom-file-label' htmlFor='customFile'>
             {filename}
+            
           </label>
         </div>
 
