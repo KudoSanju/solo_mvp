@@ -15,10 +15,10 @@ function App() {
   const [selectedFile, setSelectedFile] = useState();
 	const [isFilePicked, setIsFilePicked] = useState(false);
 
-  const URL = 'https://server-solomvp.onrender.com';
+ 
 
 async function getOutfits() {
-    const fetchedOutfits = await axios.get(`${URL}/api/outfits`);
+    const fetchedOutfits = await axios.get('https://server-solomvp.onrender.com/api/outfits');
     setOutfits(fetchedOutfits.data);
    console.log(fetchedOutfits);
   }

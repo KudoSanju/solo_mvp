@@ -11,12 +11,12 @@ const FileUpload = () => {
   const [message, setMessage] = useState('');
   const [uploadPercentage, setUploadPercentage] = useState(0);
 
-  const URL = 'https://server-solomvp.onrender.com';
+  
 
   const onSubmit = async e => {
   
     e.preventDefault();
-    await axios.post(`${URL}/upload`, {image_ref:filename})
+    await axios.post('https://server-solomvp.onrender.com/upload', {image_ref:filename})
     
 
     // const formData = new FormData();
