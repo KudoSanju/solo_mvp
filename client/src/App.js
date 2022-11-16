@@ -2,25 +2,26 @@
 import "./App.css";
 import {useState, useEffect, useRef} from 'react';
 import axios from 'axios'; 
-import FileUpload from './components/FileUpload';
-
+import FileUpload from './components/FileUpload'
 import AllOutfits from "./components/AllOutfits";
 import SingleOutfit from "./components/SingleOutfit";
 
-
-
-
 function App() {
 
- const [outfits, setOutfits] = useState([]);  
+  const [outfits, setOutfits] = useState([]);  
+ 
   const[currentView, setCurrentView] = useState('AllOutfits');
   const[selectedOutfit, setSelectedOutfit] = useState('');
   const [selectedFile, setSelectedFile] = useState();
 	const [isFilePicked, setIsFilePicked] = useState(false);
 
+async function getOutfits() {
+    const fetchedOutfits = await axios.get('/api/outfits');
+    setOutfits(fetchedOutfits.data);
+    console.log(fetchedOutfits.data);
+  }
 
-   const outfitsList = outfits.map(outfit => {
-
+  const outfitsList = outfits.map(outfit => {
     return <img alt = 'outfit_image'
      src = {outfit.image_ref}
     onClick={(e) => {
@@ -31,9 +32,7 @@ function App() {
       }}></img>
   });
 
-
-
-    function hanldeSingleOutfit(src) {
+function hanldeSingleOutfit(src) {
     setSelectedOutfit(src)
     setCurrentView('SingleOutfit');
     }
@@ -41,25 +40,17 @@ function App() {
     //handlingUpload
 
  
-  
-
-  
-
-
-
-
   useEffect(() => {
     getOutfits();
     //fetch outfits from sever
   }, []);
 
 
-  async function getOutfits() {
-    const fetchedOutfits = await axios.get('/api/outfits');
-    setOutfits(fetchedOutfits.data);
-  }
+
   return (
   <div className="App">
+   
+  
  <FileUpload />
     <h1>Outfits</h1>
     
