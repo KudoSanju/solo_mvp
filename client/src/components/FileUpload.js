@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import Message from './Message';
-import Progress from './Progress';
+
 import axios from 'axios';
 
 const FileUpload = () => {
@@ -9,16 +9,6 @@ const FileUpload = () => {
   const [uploadedFile, setUploadedFile] = useState({});
   const [message, setMessage] = useState('');
   const [uploadPercentage, setUploadPercentage] = useState(0);
-
-
-  //I don't think you still need this
-  //uncommented
-  // const onChange = e => {
-  //   console.log(e.target.files[0].name);
-  //   console.log(e.target.files);
-
-  // setFilename(e.target.files[0].name);
-  // };
 
   const onSubmit = async e => {
   
@@ -106,7 +96,7 @@ const FileUpload = () => {
           </label>
         </div>
 
-        <Progress percentage={uploadPercentage} />
+        
 
         <input
           type='submit'

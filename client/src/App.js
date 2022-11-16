@@ -17,8 +17,7 @@ function App() {
 
 async function getOutfits() {
     const fetchedOutfits = await axios.get('/api/outfits');
-    setOutfits(fetchedOutfits.data);
-    console.log(fetchedOutfits.data);
+    setOutfits(fetchedOutfits.data);  
   }
 
   const outfitsList = outfits.map(outfit => {
