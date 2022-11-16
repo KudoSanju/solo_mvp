@@ -11,7 +11,7 @@ const FileUpload = () => {
   const [message, setMessage] = useState('');
   const [uploadPercentage, setUploadPercentage] = useState(0);
 
-  const URL = 'https://server-solomvp.onrender.com/';
+  const URL = 'https://server-solomvp.onrender.com';
 
   const onSubmit = async e => {
   
