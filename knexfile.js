@@ -1,7 +1,7 @@
 require('dotenv').config()
 module.exports = {
   
-  production:{
+  
     client: "pg",
     connection: process.env.DB_URL_PROD, 
     // searchPath: 'public',
@@ -17,4 +17,3 @@ module.exports = {
       directory: __dirname + '/db/seeds'
     }
   }
-}
