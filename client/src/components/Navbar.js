@@ -4,12 +4,17 @@ import FileUpload from "./FileUpload";
 import "../styles/FileUpload.css";
 
 
-export default function Navbar({ onClick, inputRef }) {
+
+export default function Navbar({ outfitsList}) {
   return (
     <>
       <div className="navbar">
         <a href="">Return</a>
-        <FileUpload />
+        <FileUpload /> 
+       
+        
+    
+       
       </div>
     </>
   );
