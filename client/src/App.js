@@ -6,7 +6,7 @@ import AllOutfits from "./components/AllOutfits";
 import SingleOutfit from "./components/SingleOutfit";
 import Navbar from "./components/Navbar";
 import "./App.css"
-import SearchBar from './components/search';
+import SearchBar from './components/Search';
 
 
 
